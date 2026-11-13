@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-paper: #f8f7f2;
+  --color-navy: #0b1f3a;
+  --color-emerald-50: #eff6ff;
+--color-emerald-100: #dbeafe;
+--color-emerald-500: #3b82f6;
+--color-emerald-600: #2563eb;
+--color-emerald-700: #1d4ed8;
+--color-emerald-800: #1e40af;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+}
+
+/* Animated energy flow: dashes travel along the path direction */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.flow-line {
+  stroke-dasharray: 9 11;
+  stroke-linecap: round;
+  animation: flow 0.9s linear infinite;
+}
+
+.bld {
+  cursor: pointer;
+  outline: none;
+}
+.bld:hover .bld-body,
+.bld:focus-visible .bld-body {
+  filter: brightness(1.05) drop-shadow(0 4px 6px rgba(11, 31, 58, 0.2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-line {
+    animation: none;
+  }
+}
